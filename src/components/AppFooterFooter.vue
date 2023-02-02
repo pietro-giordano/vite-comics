@@ -9,7 +9,30 @@ export default {
 
       <section>
 
+            <div class="container">
+                  <button>
+                        sign-up now!
+                  </button>
 
+                  <div>
+                        <h3>Follow Us</h3>
+                        <a href="">
+                              <img src="../assets/img/footer-facebook.png" alt="">
+                        </a>
+                        <a href="">
+                              <img src="../assets/img/footer-twitter.png" alt="">
+                        </a>
+                        <a href="">
+                              <img src="../assets/img/footer-youtube.png" alt="">
+                        </a>
+                        <a href="">
+                              <img src="../assets/img/footer-pinterest.png" alt="">
+                        </a>
+                        <a href="">
+                              <img src="../assets/img/footer-periscope.png" alt="">
+                        </a>
+                  </div>
+            </div>
 
       </section>
 
@@ -17,32 +40,36 @@ export default {
 
 <style lang="scss" scoped>
 section {
-      background-color: #0282f9;
+      background-color: #303030;
 
       .container {
+            padding-top: 20px;
+            padding-bottom: 20px;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
+            align-items: center;
+
+            button {
+                  text-transform: uppercase;
+                  color: white;
+                  padding: 10px;
+                  background-color: #303030;
+                  border: 2px solid #0282f9;
+            }
 
             div {
-                  height: 150px;
-                  background-color: #0282f9;
                   display: flex;
                   align-items: center;
-                  justify-content: center;
-                  width: calc((1000px / 5) - 20px);
 
-                  a {
-                        text-decoration: none;
+                  h3 {
                         text-transform: uppercase;
-                        color: white;
-                        font-size: 0.8rem;
-                        padding: 5px;
+                        color: #0282f9;
                   }
 
-                  img {
-                        display: inline-block;
-                        max-width: 40px;
-                        max-height: 40px;
+                  img {}
+
+                  >* {
+                        margin: 10px;
                   }
             }
       }
