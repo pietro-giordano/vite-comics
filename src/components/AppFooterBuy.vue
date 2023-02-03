@@ -10,20 +10,20 @@ export default {
                               src: 'buy-comics-digital-comics.png',
                               url: '#'
                         }, {
-                              label: 'digital comics',
-                              src: 'buy-comics-digital-comics.png',
+                              label: 'dc merchandise',
+                              src: 'buy-comics-merchandise.png',
                               url: '#'
                         }, {
-                              label: 'digital comics',
-                              src: 'buy-comics-digital-comics.png',
+                              label: 'subscription',
+                              src: 'buy-comics-subscriptions.png',
                               url: '#'
                         }, {
-                              label: 'digital comics',
-                              src: 'buy-comics-digital-comics.png',
+                              label: 'comic shop locator',
+                              src: 'buy-comics-shop-locator.png',
                               url: '#'
                         }, {
-                              label: 'digital comics',
-                              src: 'buy-comics-digital-comics.png',
+                              label: 'dc power visa',
+                              src: 'buy-dc-power-visa.svg',
                               url: '#'
                         },
                   ]

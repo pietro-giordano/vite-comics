@@ -20,13 +20,26 @@ export default {
 
       <main>
             <div class="jumbotron">
-                  <img src="../assets/img/jumbotron.jpg" alt="teen titans">
             </div>
 
             <div class="container">
-                  <div v-for="card in comics" class="card">
-                        <img :src="card.thumb" :alt="card.series">
-                        <p>{{ card.series }}</p>
+                  <div class="current-button">
+                        <button>
+                              current series
+                        </button>
+                  </div>
+
+                  <div class="card-container">
+                        <div v-for="card in comics" class="card">
+                              <img :src="card.thumb" :alt="card.series">
+                              <p>{{ card.series }}</p>
+                        </div>
+                  </div>
+
+                  <div class="load-button">
+                        <button>
+                              load more
+                        </button>
                   </div>
             </div>
       </main>
@@ -42,41 +55,75 @@ main {
 
       .jumbotron {
             height: 300px;
+            background-image: url('../assets/img/jumbotron.jpg');
+            background-size: cover;
 
-            img {
-                  height: 100%;
-                  width: 100%;
-                  object-fit: cover;
-                  object-position: top;
-            }
       }
 
       .container {
             @include container;
-            @include flex(row, space-between, center);
-            flex-wrap: wrap;
             color: white;
             font-size: 1.3rem;
-            margin-top: 50px;
+            padding-top: 50px;
+            position: relative;
 
-            .card {
-                  width: calc((100% / 6) - 20px);
-                  height: 200px;
-                  margin-bottom: 20px;
+            button {
+                  background-color: $main-blue;
+                  color: white;
+                  font-weight: bold;
+                  text-transform: uppercase;
+                  border: none;
+                  cursor: pointer;
+            }
 
-                  img {
-                        width: 100%;
-                        height: 150px;
-                        object-fit: cover;
-                        object-position: top;
-                        padding-bottom: 10px;
+            .current-button {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  transform: translateY(-50%);
+
+                  button {
+                        padding: 8px 15px;
+                        font-size: 1.3rem
                   }
+            }
 
-                  p {
-                        text-transform: uppercase;
+            .load-button {
+                  @include flex(row, center, center);
+                  padding-bottom: 15px;
+
+                  button {
+                        padding: 8px 30px;
                         font-size: 0.8rem;
                   }
             }
+
+            .card-container {
+                  @include flex(row, space-around, center);
+                  flex-wrap: wrap;
+
+                  .card {
+                        width: calc((100% / 6) - 20px);
+                        height: 200px;
+                        margin-bottom: 20px;
+                        cursor: pointer;
+
+                        img {
+                              width: 100%;
+                              height: 150px;
+                              object-fit: cover;
+                              object-position: top;
+                              padding-bottom: 10px;
+                        }
+
+                        p {
+                              text-transform: uppercase;
+                              font-size: 0.8rem;
+                        }
+                  }
+            }
       }
+
+
 }
 </style>
