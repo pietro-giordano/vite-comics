@@ -92,9 +92,13 @@ export default {
             text-transform: uppercase;
             font-size: 0.7rem;
             font-weight: bold;
+            height: 100%;
 
             li {
-                  margin: 15px;
+                  @include flex(row, center, center);
+                  margin: 0px 15px;
+                  height: 100%;
+                  position: relative;
 
                   a {
                         text-decoration: none;
@@ -102,7 +106,16 @@ export default {
 
                         &.active {
                               color: $main-blue;
-                              border-bottom: 4px inset $main-blue;
+
+                              &::after {
+                                    bottom: 0;
+                                    content: '';
+                                    display: block;
+                                    background-color: $main-blue;
+                                    height: 5px;
+                                    width: 100%;
+                                    position: absolute;
+                              }
                         }
 
                   }

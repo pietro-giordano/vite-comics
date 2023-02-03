@@ -4,7 +4,104 @@ export default {
       name: 'AppFooterLinks',
       data() {
             return {
-
+                  sections: [
+                        {
+                              title: 'dc comics',
+                              links: [
+                                    {
+                                          label: 'Characters',
+                                          url: '#'
+                                    }, {
+                                          label: 'Comics',
+                                          url: '#'
+                                    }, {
+                                          label: 'Movies',
+                                          url: '#'
+                                    }, {
+                                          label: 'TV',
+                                          url: '#'
+                                    }, {
+                                          label: 'Games',
+                                          url: '#'
+                                    }, {
+                                          label: 'Videos',
+                                          url: '#'
+                                    }, {
+                                          label: 'News',
+                                          url: '#'
+                                    },
+                              ]
+                        }, {
+                              title: 'shop',
+                              links: [
+                                    {
+                                          label: 'Shop DC',
+                                          url: '#'
+                                    }, {
+                                          label: 'Shop DC Collectibles',
+                                          url: '#'
+                                    },
+                              ]
+                        }, {
+                              title: 'dc',
+                              links: [
+                                    {
+                                          label: 'Terms Of Use',
+                                          url: '#'
+                                    }, {
+                                          label: 'Privacy Policy (New)',
+                                          url: '#'
+                                    }, {
+                                          label: 'Add Choices',
+                                          url: '#'
+                                    }, {
+                                          label: 'Advertising',
+                                          url: '#'
+                                    }, {
+                                          label: 'Jobs',
+                                          url: '#'
+                                    }, {
+                                          label: 'Subscriptions',
+                                          url: '#'
+                                    }, {
+                                          label: 'Talent Workshops',
+                                          url: '#'
+                                    }, {
+                                          label: 'CPSC Certificates',
+                                          url: '#'
+                                    }, {
+                                          label: 'Ratings',
+                                          url: '#'
+                                    }, {
+                                          label: 'Shop Help',
+                                          url: '#'
+                                    }, {
+                                          label: 'Contact Us',
+                                          url: '#'
+                                    },
+                              ]
+                        }, {
+                              title: 'sites',
+                              links: [
+                                    {
+                                          label: 'DC',
+                                          url: '#'
+                                    }, {
+                                          label: 'MAD Magazine',
+                                          url: '#'
+                                    }, {
+                                          label: 'DC Kids',
+                                          url: '#'
+                                    }, {
+                                          label: 'DC Universe',
+                                          url: '#'
+                                    }, {
+                                          label: 'DC Power Visa',
+                                          url: '#'
+                                    },
+                              ]
+                        },
+                  ]
             }
       }
 }
@@ -16,105 +113,15 @@ export default {
 
             <div class="container">
                   <div class="links">
-                        <div>
-                              <h3>dc comics</h3>
+                        <div v-for="section in sections">
+                              <h3>{{ section.title }}</h3>
                               <ul>
-                                    <li>
-                                          <a href="">Characters</a>
-                                    </li>
-                                    <li>
-                                          <a href="">Comics</a>
-                                    </li>
-                                    <li>
-                                          <a href="">Movies</a>
-                                    </li>
-                                    <li>
-                                          <a href="">TV</a>
-                                    </li>
-                                    <li>
-                                          <a href="">Games</a>
-                                    </li>
-                                    <li>
-                                          <a href="">Videos</a>
-                                    </li>
-                                    <li>
-                                          <a href="">News</a>
-                                    </li>
-                              </ul>
-
-                              <h3>shop</h3>
-                              <ul>
-                                    <li>
-                                          <a href="">Shop DC</a>
-                                    </li>
-                                    <li>
-                                          <a href="">Shop DC Collectibles</a>
-                                    </li>
-                              </ul>
-                        </div>
-
-                        <div>
-                              <h3>dc</h3>
-                              <ul>
-                                    <li>
-                                          <a href="">Terms Of Use</a>
-                                    </li>
-                                    <li>
-                                          <a href="">Privacy Policy (new)</a>
-                                    </li>
-                                    <li>
-                                          <a href="">Ad Choices</a>
-                                    </li>
-                                    <li>
-                                          <a href="">Advertising</a>
-                                    </li>
-                                    <li>
-                                          <a href="">Jobs</a>
-                                    </li>
-                                    <li>
-                                          <a href="">Subscriptions</a>
-                                    </li>
-                                    <li>
-                                          <a href="">Talent Workshops</a>
-                                    </li>
-                                    <li>
-                                          <a href="">CPSC Certificates</a>
-                                    </li>
-                                    <li>
-                                          <a href="">Ratings</a>
-                                    </li>
-                                    <li>
-                                          <a href="">Shop Help</a>
-                                    </li>
-                                    <li>
-                                          <a href="">Contact Us</a>
-                                    </li>
-                              </ul>
-                        </div>
-
-                        <div>
-                              <h3>sites</h3>
-                              <ul>
-                                    <li>
-                                          <a href="">DC</a>
-                                    </li>
-                                    <li>
-                                          <a href="">MAD Magazine</a>
-                                    </li>
-                                    <li>
-                                          <a href="">DC Kids</a>
-                                    </li>
-                                    <li>
-                                          <a href="">DC Universe</a>
-                                    </li>
-                                    <li>
-                                          <a href="">DC Power Visa</a>
+                                    <li v-for="link in section.links">
+                                          <a :href="link.url">{{ link.label }}</a>
                                     </li>
                               </ul>
                         </div>
                   </div>
-
-                  <!-- <img src="../assets/img/dc-logo-bg.png" alt=""> -->
             </div>
 
       </section>
@@ -127,18 +134,25 @@ export default {
 
 section {
       background-image: url('../assets/img/footer-bg.jpg');
-      padding-top: 30px;
-      padding-bottom: 30px;
+      height: 330px;
 
       .container {
             @include container;
-            @include flex(row, space-between);
+            height: 100%;
 
             .links {
-                  display: flex;
+                  @include flex(column);
+                  flex-wrap: wrap;
+                  align-content: flex-start;
+                  padding: 30px 0px;
+                  height: 100%;
+                  background-image: url('../assets/img/dc-logo-bg.png');
+                  background-size: 500px;
+                  background-position: right;
+                  background-repeat: no-repeat;
 
                   >div {
-                        margin-right: 20px;
+                        margin-right: 30px;
 
                         h3 {
                               color: white;
@@ -151,9 +165,13 @@ section {
                               margin-bottom: 20px;
 
                               a {
-                                    color: #929387;
+                                    color: $footer-links;
                                     text-decoration: none;
                                     font-size: 0.6rem;
+
+                                    &:hover {
+                                          color: $main-blue;
+                                    }
                               }
                         }
                   }

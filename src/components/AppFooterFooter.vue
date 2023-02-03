@@ -76,6 +76,11 @@ section {
                   padding: 10px;
                   background-color: $footer-gray;
                   border: 2px solid $main-blue;
+                  cursor: pointer;
+
+                  &:hover {
+                        background-color: $main-blue;
+                  }
             }
 
             div {
@@ -85,8 +90,6 @@ section {
                         text-transform: uppercase;
                         color: $main-blue;
                   }
-
-                  img {}
 
                   >* {
                         margin: 10px;
