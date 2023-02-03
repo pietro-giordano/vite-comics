@@ -2,6 +2,38 @@
 
 export default {
       name: 'AppFooterBuy',
+      data() {
+            return {
+                  links: [
+                        {
+                              label: 'digital comics',
+                              src: 'buy-comics-digital-comics.png',
+                              url: '#'
+                        }, {
+                              label: 'digital comics',
+                              src: 'buy-comics-digital-comics.png',
+                              url: '#'
+                        }, {
+                              label: 'digital comics',
+                              src: 'buy-comics-digital-comics.png',
+                              url: '#'
+                        }, {
+                              label: 'digital comics',
+                              src: 'buy-comics-digital-comics.png',
+                              url: '#'
+                        }, {
+                              label: 'digital comics',
+                              src: 'buy-comics-digital-comics.png',
+                              url: '#'
+                        },
+                  ]
+            }
+      },
+      methods: {
+            getImagePath: function (imgPath) {
+                  return new URL(imgPath, import.meta.url).href;
+            }
+      }
 }
 </script>
 
@@ -10,25 +42,9 @@ export default {
       <section>
 
             <div class="container">
-                  <div>
-                        <img src="../assets/img/buy-comics-digital-comics.png" alt="">
-                        <a href="">digital comics</a>
-                  </div>
-                  <div>
-                        <img src="../assets/img/buy-comics-merchandise.png" alt="">
-                        <a href="">dc merchandise</a>
-                  </div>
-                  <div>
-                        <img src="../assets/img/buy-comics-subscriptions.png" alt="">
-                        <a href="">subscription</a>
-                  </div>
-                  <div>
-                        <img src="../assets/img/buy-comics-shop-locator.png" alt="">
-                        <a href="">comic shop locator</a>
-                  </div>
-                  <div>
-                        <img src="../assets/img/buy-dc-power-visa.svg" alt="">
-                        <a href="">dc power visa</a>
+                  <div v-for="link in links">
+                        <img :src="getImagePath(`../assets/img/${link.src}`)" :alt="link.label">
+                        <a :href="link.url">{{ link.label }}</a>
                   </div>
             </div>
 
@@ -37,19 +53,20 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use '../styles/partials/mixins.scss' as *;
+@use '../styles/partials/variables.scss' as *;
+
 section {
-      background-color: #0282f9;
+      background-color: $main-blue;
 
       .container {
-            display: flex;
-            justify-content: space-around;
+            @include container;
+            @include flex(row, space-around);
 
             div {
+                  @include flex(row, center, center);
                   height: 140px;
-                  background-color: #0282f9;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
+                  background-color: $main-blue;
                   width: calc((1000px / 5) - 20px);
 
                   a {

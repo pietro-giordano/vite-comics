@@ -2,6 +2,11 @@
 
 export default {
       name: 'AppFooterLinks',
+      data() {
+            return {
+
+            }
+      }
 }
 </script>
 
@@ -117,14 +122,17 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use '../styles/partials/mixins.scss' as *;
+@use '../styles/partials/variables.scss' as *;
+
 section {
       background-image: url('../assets/img/footer-bg.jpg');
       padding-top: 30px;
       padding-bottom: 30px;
 
       .container {
-            display: flex;
-            justify-content: space-between;
+            @include container;
+            @include flex(row, space-between);
 
             .links {
                   display: flex;

@@ -2,6 +2,53 @@
 
 export default {
       name: 'AppHeader',
+      data() {
+            return {
+                  links: [
+                        {
+                              label: 'characters',
+                              url: '#',
+                              active: false,
+                        }, {
+                              label: 'comics',
+                              url: '#',
+                              active: true,
+                        }, {
+                              label: 'movies',
+                              url: '#',
+                              active: false,
+                        }, {
+                              label: 'tv',
+                              url: '#',
+                              active: false,
+                        }, {
+                              label: 'games',
+                              url: '#',
+                              active: false,
+                        }, {
+                              label: 'collectibles',
+                              url: '#',
+                              active: false,
+                        }, {
+                              label: 'videos',
+                              url: '#',
+                              active: false,
+                        }, {
+                              label: 'fans',
+                              url: '#',
+                              active: false,
+                        }, {
+                              label: 'news',
+                              url: '#',
+                              active: false,
+                        }, {
+                              label: 'shop',
+                              url: '#',
+                              active: false,
+                        },
+                  ]
+            }
+      }
 }
 
 </script>
@@ -15,54 +62,9 @@ export default {
                   </div>
 
                   <ul>
-                        <li>
-                              <a href="">
-                                    characters
-                              </a>
-                        </li>
-                        <li class="active">
-                              <a href="">
-                                    comics
-                              </a>
-                        </li>
-                        <li>
-                              <a href="">
-                                    movies
-                              </a>
-                        </li>
-                        <li>
-                              <a href="">
-                                    tv
-                              </a>
-                        </li>
-                        <li>
-                              <a href="">
-                                    games
-                              </a>
-                        </li>
-                        <li>
-                              <a href="">
-                                    collectibles
-                              </a>
-                        </li>
-                        <li>
-                              <a href="">
-                                    videos
-                              </a>
-                        </li>
-                        <li>
-                              <a href="">
-                                    fans
-                              </a>
-                        </li>
-                        <li>
-                              <a href="">
-                                    news
-                              </a>
-                        </li>
-                        <li>
-                              <a href="">
-                                    shop
+                        <li v-for="link in links">
+                              <a :href="link.url" :class="{ active: link.active }">
+                                    {{ link.label }}
                               </a>
                         </li>
                   </ul>
@@ -72,10 +74,12 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use '../styles/partials/mixins.scss' as *;
+@use '../styles/partials/variables.scss' as *;
+
 .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      @include container;
+      @include flex(row, space-between, center);
       height: 100px;
 
       .logo img {
@@ -83,28 +87,27 @@ export default {
       }
 
       ul {
+            @include flex(row, flex-start, center);
             list-style: none;
             text-transform: uppercase;
-            display: flex;
-            align-items: center;
             font-size: 0.7rem;
             font-weight: bold;
 
             li {
                   margin: 15px;
 
-                  &.active {
-                        color: #0282f9;
-                        border-bottom: 4px inset #0282f9;
-                  }
-
                   a {
                         text-decoration: none;
                         color: black;
 
-                  }
+                        &.active {
+                              color: $main-blue;
+                              border-bottom: 4px inset $main-blue;
+                        }
 
+                  }
             }
+
       }
 }
 </style>

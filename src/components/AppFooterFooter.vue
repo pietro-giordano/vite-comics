@@ -2,6 +2,38 @@
 
 export default {
       name: 'AppFooterFooter',
+      data() {
+            return {
+                  social: [
+                        {
+                              label: 'facebook',
+                              url: '#',
+                              src: "footer-facebook.png"
+                        }, {
+                              label: 'twitter',
+                              url: '#',
+                              src: "footer-twitter.png"
+                        }, {
+                              label: 'youtube',
+                              url: '#',
+                              src: "footer-youtube.png"
+                        }, {
+                              label: 'pinterest',
+                              url: '#',
+                              src: "footer-pinterest.png"
+                        }, {
+                              label: 'periscope',
+                              url: '#',
+                              src: "footer-periscope.png"
+                        },
+                  ]
+            }
+      },
+      methods: {
+            getImagePath: function (imgPath) {
+                  return new URL(imgPath, import.meta.url).href;
+            }
+      }
 }
 </script>
 
@@ -16,20 +48,8 @@ export default {
 
                   <div>
                         <h3>Follow Us</h3>
-                        <a href="">
-                              <img src="../assets/img/footer-facebook.png" alt="">
-                        </a>
-                        <a href="">
-                              <img src="../assets/img/footer-twitter.png" alt="">
-                        </a>
-                        <a href="">
-                              <img src="../assets/img/footer-youtube.png" alt="">
-                        </a>
-                        <a href="">
-                              <img src="../assets/img/footer-pinterest.png" alt="">
-                        </a>
-                        <a href="">
-                              <img src="../assets/img/footer-periscope.png" alt="">
+                        <a v-for="a in social" :href="a.label">
+                              <img :src="getImagePath(`../assets/img/${a.src}`)" :alt="a.label">
                         </a>
                   </div>
             </div>
@@ -39,31 +59,31 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use '../styles/partials/mixins.scss' as *;
+@use '../styles/partials/variables.scss' as *;
+
 section {
-      background-color: #303030;
+      background-color: $footer-gray;
 
       .container {
-            padding-top: 20px;
-            padding-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            @include container;
+            @include flex(row, space-between, center);
+            padding: 20px 0;
 
             button {
                   text-transform: uppercase;
                   color: white;
                   padding: 10px;
-                  background-color: #303030;
-                  border: 2px solid #0282f9;
+                  background-color: $footer-gray;
+                  border: 2px solid $main-blue;
             }
 
             div {
-                  display: flex;
-                  align-items: center;
+                  @include flex(row, flex-start, center);
 
                   h3 {
                         text-transform: uppercase;
-                        color: #0282f9;
+                        color: $main-blue;
                   }
 
                   img {}
