@@ -1,8 +1,12 @@
 <script>
 import DcComics from '../assets/dc-comics.json';
+import AppCard from './AppCard.vue';
 
 export default {
       name: 'AppMain',
+      components: {
+            AppCard
+      },
       data() {
             return {
                   comics: DcComics,
@@ -30,10 +34,7 @@ export default {
                   </div>
 
                   <div class="card-container">
-                        <div v-for="card in comics" class="card">
-                              <img :src="card.thumb" :alt="card.series">
-                              <p>{{ card.series }}</p>
-                        </div>
+                        <AppCard v-for="card in comics" class="card" :series="card.series" :thumb="card.thumb" />
                   </div>
 
                   <div class="load-button">
@@ -107,18 +108,18 @@ main {
                         margin-bottom: 20px;
                         cursor: pointer;
 
-                        img {
-                              width: 100%;
-                              height: 150px;
-                              object-fit: cover;
-                              object-position: top;
-                              padding-bottom: 10px;
-                        }
+                        // img {
+                        //       width: 100%;
+                        //       height: 150px;
+                        //       object-fit: cover;
+                        //       object-position: top;
+                        //       padding-bottom: 10px;
+                        // }
 
-                        p {
-                              text-transform: uppercase;
-                              font-size: 0.8rem;
-                        }
+                        // p {
+                        //       text-transform: uppercase;
+                        //       font-size: 0.8rem;
+                        // }
                   }
             }
       }
