@@ -16,16 +16,5 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      object-position: top;
-      padding-bottom: 10px;
-}
 
-p {
-      text-transform: uppercase;
-      font-size: 0.8rem;
-}
 </style>
